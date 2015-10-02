@@ -1,0 +1,47 @@
+<!--
+ * Engineered and developed by Jhonny Trejos Barrios.
+ * Technology: Visualforce for the Force.com platform.
+ * Development Environment: Sublime Text 3.
+ * ___________________________________________________________________________________________________________________________________________________
+ * ___________________________________________________________________________________________________________________________________________________
+ *
+ * Additional Information.
+ *
+ *
+ * Code Target:
+ *				Pagina de Visualforce renderizada en formato PDF para mostrar un unico registro del objeto 'Estudiante__c'.
+ *
+ * Licence: 
+ *			This software was coded for commercial use of Home Business Company only.
+ *          Unauthorized copy or use in other companies is extrictly prohibited.
+ *
+ *
+ * Developer Contact: jtrejosb@gmail.com || jtrejosb@live.com || jtrejosb@icloud.com
+ * Mobile: (+57) 317 311 3223
+ * © 2015
+ * ______________________________________________________________________________________________________________________________________________  -->
+
+<apex:page standardController="Estudiante__c" extensions="SingleStudent" renderAs="pdf">
+
+	<apex:image value="{!$Resource.Banner}" width="100%" height="150"/>
+
+	<p> <h2 style="color:green; font-face:menlo"> <b> {!title} </b> </h2> </p>
+
+	<table width="100%" border="1" cellspacing="0">
+		<tr>
+			<td align="center" style="color:gray; font-face:menlo"> <h3> <b> Nombres </b> </h3> </td>
+			<td align="center" style="color:gray; font-face:menlo"> <h3> <b> Apellidos </b> </h3> </td>
+			<td align="center" style="color:gray; font-face:menlo"> <h3> <b> Telefono </b> </h3> </td>
+		</tr>
+
+		<apex:repeat value="{!estudiantes}" var="E">
+			<tr>
+				<td align="center" style="color:gray; font-face:menlo"> {!E.Nombres__c} </td>
+				<td align="center" style="color:gray; font-face:menlo"> {!E.Apellidos__c} </td>
+				<td align="center" style="color:{!IF(ISBLANK(E.Telefono__c), 'red;', 'gray;')} font-face:menlo"> <apex:outputText value="{!IF(ISBLANK(E.Telefono__c), 'No Proporcionado', E.Telefono__c)}"/> </td>
+			</tr>
+		</apex:repeat>
+	</table>
+
+</apex:page>
+<!--  ___________________________________________________________________________________________________________________________________________  -->

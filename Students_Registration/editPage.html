@@ -1,0 +1,54 @@
+<!--
+ * Engineered and developed by Jhonny Trejos Barrios.
+ * Technology: Visualforce for the Force.com platform.
+ * Development Environment: Sublime Text 3.
+ * ___________________________________________________________________________________________________________________________________________________
+ * ___________________________________________________________________________________________________________________________________________________
+ *
+ * Additional Information.
+ *
+ *
+ * Code Target:
+ *				Pagina que permite editar la informacion de todos los campos de todos los registros del tipo 'Estudiante'.
+ *
+ * Licence: 
+ *			This software was coded for commercial use of Home Business Company only.
+ *          Unauthorized copy or use in other companies is extrictly prohibited.
+ *
+ *
+ * Developer Contact: jtrejosb@gmail.com || jtrejosb@live.com || jtrejosb@icloud.com
+ * Mobile: (+57) 317 311 3223
+ * © 2015
+ * ______________________________________________________________________________________________________________________________________________  -->
+
+<apex:page standardController="Estudiante__c" extensions="Items" tabStyle="Account">
+
+	<apex:image value="{!$Resource.Banner}" width="100%" height="150"/>
+
+	<apex:form>
+	
+		<apex:pageBlock title="Modificar Informacion">
+			<apex:pageBlockButtons>
+				<apex:commandButton value="Guardar Cambios" action="{!saveAll}"/>
+				<apex:commandButton value="Cancelar" action="{!cancel}"/>
+			</apex:pageBlockButtons>
+
+			<apex:pageBlockSection title="Estudiantes. {!studentSize} registros disponibles" columns="1" collapsible="false">
+				<apex:pageBlockTable value="{!estudiantes}" var="E">
+					<apex:column headerValue="Nombres">
+						<apex:inputField value="{!E.Nombres__c}"/>
+					</apex:column>
+					<apex:column headerValue="Apellidos">
+						<apex:inputField value="{!E.Apellidos__c}"/>
+					</apex:column>
+					<apex:column headerValue="Telefono">
+						<apex:inputField value="{!E.Telefono__c}"/>
+					</apex:column>
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	
+	</apex:form>
+
+</apex:page>
+<!--  ___________________________________________________________________________________________________________________________________________  -->
